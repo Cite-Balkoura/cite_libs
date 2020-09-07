@@ -1,0 +1,13 @@
+name: Cite-libs
+author: MileKat
+main: fr.milekat.cite_libs.MainLibs
+version: '1.0'
+api-version: '1.16'
+description: plugin cite au émeraudes par MileKat - Libs
+depend: []
+commands:
+  jedis:
+    usage: "/jedis"
+    permission: admin.jedis
+    permission-message: "§cVous n'avez pas la permission d'utiliser cette commande."
+    description: "Commande de débug"
