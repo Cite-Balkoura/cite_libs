@@ -4,7 +4,7 @@ main: fr.milekat.cite_libs.MainLibs
 version: '1.0'
 api-version: '1.16'
 description: plugin cite au émeraudes par MileKat - Libs
-depend: []
+depend: [ProtocolLib]
 commands:
   jedis:
     usage: "/jedis"
