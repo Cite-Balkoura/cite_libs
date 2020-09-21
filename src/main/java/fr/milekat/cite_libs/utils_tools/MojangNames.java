@@ -6,11 +6,12 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 
 public class MojangNames {
-    public static String getUuid(String name) {
+    public static String getUuid(String name) throws FileNotFoundException {
         String url = "https://api.mojang.com/users/profiles/minecraft/"+name;
         try {
             @SuppressWarnings("deprecation")
