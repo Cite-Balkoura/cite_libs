@@ -39,6 +39,7 @@ public class ItemParser {
             List<String> lores = Arrays.asList(lore.split("%nl%"));
             data.setLore(lores);
         }
+        if (name!=null && name.contains("Hammer")) data.setCustomModelData(1);
         item.setItemMeta(data);
         return item;
     }
