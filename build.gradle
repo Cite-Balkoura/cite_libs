@@ -13,13 +13,6 @@ repositories {
     maven { url = 'https://jitpack.io' }
 }
 
-sourceCompatibility = 1.8
-
-compileJava.options.encoding = 'UTF-8'
-
-setLibsDirName('C:/Users/arthu/Google Drive/Games/Minecraft/Dev/Java')
-archivesBaseName = 'cite_libs'
-
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation group: 'redis.clients', name: 'jedis', version: '3.2.0'
@@ -32,5 +25,3 @@ dependencies {
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
 }
-
-mainClassName = 'fr.milekat.cite_libs.MainLibs'
