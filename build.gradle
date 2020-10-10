@@ -25,3 +25,5 @@ dependencies {
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
 }
+
+mainClassName = 'fr.milekat.cite_libs.MainLibs'
