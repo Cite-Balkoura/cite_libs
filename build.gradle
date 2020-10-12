@@ -5,7 +5,7 @@ plugins {
 }
 
 shadowJar{
-    classifier = ''
+    archiveClassifier.set('')
 }
 
 repositories {
