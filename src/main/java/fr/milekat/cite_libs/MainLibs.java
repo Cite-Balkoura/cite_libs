@@ -22,7 +22,6 @@ public class MainLibs extends JavaPlugin {
     @Override
     public void onEnable() {
         mainLibs = this;
-
         jedisDebug = this.getConfig().getBoolean("redis.debug");
         this.saveDefaultConfig();
         this.getConfig();
