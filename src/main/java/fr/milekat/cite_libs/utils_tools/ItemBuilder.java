@@ -3,6 +3,7 @@ package fr.milekat.cite_libs.utils_tools;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -119,6 +120,19 @@ public class ItemBuilder {
         return this;
     }
 
+    /**
+     * Add item flag
+     * @param itemFlag ItemFlag to add
+     * @return
+     */
+    public ItemBuilder addItemFlag(ItemFlag itemFlag){
+        ItemMeta im = is.getItemMeta();
+        assert im != null;
+        im.addItemFlags(itemFlag);
+        is.setItemMeta(im);
+        return this;
+    }
+
 
     /**
      * Remove a lore line.
@@ -189,6 +203,7 @@ public class ItemBuilder {
         im.setLore(new ArrayList<>());
         is.setItemMeta(im);
     }
+
 
     /**
      * Retrieves the itemstack from the ItemBuilder.
