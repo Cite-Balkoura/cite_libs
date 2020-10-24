@@ -4,18 +4,20 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 
+import java.util.Objects;
+
 public class LocToString {
     /**
      * Converts a location to a simple string representation
      * If location is null, returns empty string
-     * @param l
-     * @return
+     * @param l la loc à convertir
+     * @return Loc en String
      */
     public static String getStringLocation(final Location l) {
         if (l == null) {
             return "";
         }
-        return l.getWorld().getName() + ":" + l.getBlockX() + ":" + l.getBlockY() + ":" + l.getBlockZ();
+        return Objects.requireNonNull(l.getWorld()).getName() + ":" + l.getBlockX() + ":" + l.getBlockY() + ":" + l.getBlockZ();
     }
 
     /**
@@ -24,7 +26,7 @@ public class LocToString {
      * @return Location
      */
     public static Location getLocationString(final String s) {
-        if (s == null || s.trim() == "") {
+        if (s == null || s.trim().equals("") || s.trim().equalsIgnoreCase("null")) {
             return null;
         }
         final String[] parts = s.split(":");

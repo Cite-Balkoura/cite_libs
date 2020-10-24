@@ -204,7 +204,6 @@ public class ItemBuilder {
         is.setItemMeta(im);
     }
 
-
     /**
      * Retrieves the itemstack from the ItemBuilder.
      * @return The itemstack created/modified by the ItemBuilder instance.
