@@ -3,6 +3,7 @@ package fr.milekat.cite_libs;
 import fr.milekat.cite_libs.core.commands.JedisDebug;
 import fr.milekat.cite_libs.utils_tools.Jedis.JedisSub;
 import fr.milekat.cite_libs.utils_tools.MariaManage;
+import fr.mrmicky.fastinv.FastInvManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -22,6 +23,7 @@ public class MainLibs extends JavaPlugin {
     @Override
     public void onEnable() {
         mainLibs = this;
+        FastInvManager.register(this);
         jedisDebug = this.getConfig().getBoolean("redis.debug");
         this.saveDefaultConfig();
         this.getConfig();
