@@ -1,7 +1,6 @@
 package fr.milekat.cite_libs.utils_tools.Jedis;
 
 import fr.milekat.cite_libs.MainLibs;
-import fr.milekat.cite_libs.core.events_register.RedisMessageReceive;
 import org.bukkit.Bukkit;
 import redis.clients.jedis.JedisPubSub;
 
@@ -18,8 +17,8 @@ public class JedisSub extends JedisPubSub {
                 Bukkit.getLogger().info("SUB:{" + channel + "},MSG:{" + message + "}");
             }
             Bukkit.getScheduler().runTask(MainLibs.getInstance(), () -> {
-                RedisMessageReceive redisMessageReceive = new RedisMessageReceive(message);
-                Bukkit.getPluginManager().callEvent(redisMessageReceive);
+                JedisSubEvent jedisSubEvent = new JedisSubEvent(channel, message);
+                Bukkit.getPluginManager().callEvent(jedisSubEvent);
             });
         } else {
             if (MainLibs.jedisDebug) {

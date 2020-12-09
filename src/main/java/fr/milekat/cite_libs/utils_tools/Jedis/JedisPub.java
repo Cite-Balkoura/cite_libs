@@ -8,7 +8,6 @@ import java.util.Objects;
 
 
 public class JedisPub {
-
     /**
      *      Envoi d'un message sur le Redis
      * @param msg message à envoyer

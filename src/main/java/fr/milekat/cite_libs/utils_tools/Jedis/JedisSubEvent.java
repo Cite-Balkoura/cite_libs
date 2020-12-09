@@ -1,12 +1,13 @@
-package fr.milekat.cite_libs.core.events_register;
+package fr.milekat.cite_libs.utils_tools.Jedis;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 import java.util.Arrays;
 
-public class RedisMessageReceive extends Event {
+public class JedisSubEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();
+    private final String channel;
     private final String redismsg;
 
     @Override
@@ -19,8 +20,13 @@ public class RedisMessageReceive extends Event {
         return HANDLERS;
     }
 
-    public RedisMessageReceive(String redismsg){
+    public JedisSubEvent(String channel, String redismsg){
+        this.channel = channel;
         this.redismsg = redismsg;
+    }
+
+    public String getChannel(){
+        return this.channel;
     }
 
     public String getLabel(){
@@ -30,13 +36,11 @@ public class RedisMessageReceive extends Event {
 
     public String[] getArgs(){
         String[] split = this.redismsg.split("#:#");
-        String[] args = Arrays.copyOfRange(split,1,split.length);
-        return args;
+        return Arrays.copyOfRange(split,1,split.length);
     }
 
     public String[] getFullArgs(){
-        String[] args = this.redismsg.split("#:#");
-        return args;
+        return this.redismsg.split("#:#");
     }
 
     public String getFullMessage(){
