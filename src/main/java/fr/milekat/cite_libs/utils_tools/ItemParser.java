@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
@@ -27,20 +28,22 @@ public class ItemParser {
         if (name!=null){
             data.setDisplayName(name);
         }
-        if (enchant!=null){
-            String[] enchants = enchant.split(",");
-            for (int i=1;i<=enchants.length;i++){
-                String[] ench = enchants[i-1].split(":");
-                data.addEnchant(Objects.requireNonNull(Enchantment.getByKey(NamespacedKey.minecraft(ench[0].toLowerCase()))),
-                        Integer.parseInt(ench[1]),true);
-            }
-        }
         if (lore!=null){
             List<String> lores = Arrays.asList(lore.split("%nl%"));
             data.setLore(lores);
         }
         if (name!=null && name.contains("Hammer")) data.setCustomModelData(1);
         item.setItemMeta(data);
+        EnchantmentStorageMeta enchantItem = (EnchantmentStorageMeta) item.getItemMeta();
+        if (enchant!=null){
+            String[] enchants = enchant.split(",");
+            for (int i=1;i<=enchants.length;i++){
+                String[] ench = enchants[i-1].split(":");
+                enchantItem.addStoredEnchant(Objects.requireNonNull(Enchantment.getByKey(NamespacedKey.minecraft(ench[0].toLowerCase()))),
+                        Integer.parseInt(ench[1]),true);
+            }
+        }
+        item.setItemMeta(enchantItem);
         return item;
     }
 }
